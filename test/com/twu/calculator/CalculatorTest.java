@@ -31,7 +31,7 @@ public class CalculatorTest {
     }
 
     @Test
-    public void shouldReturnCorrectValueWhenAValueIsAddedAsSecondCommand() {
+    public void shouldReturnCorrectValueWhenTwoAddCommandAreGiven() {
         Calculator calculator = new Calculator();
         calculator.processCommand("add 10");
 
@@ -41,7 +41,7 @@ public class CalculatorTest {
     }
 
     @Test
-    public void shouldReturnCorrectValueWhenAValueIsSubtractedAsSecondCommand() {
+    public void shouldReturnCorrectValueWhenFirstCommandIsAddAndSecondCommandIsSubtract() {
         Calculator calculator = new Calculator();
         calculator.processCommand("add 30");
 
@@ -51,7 +51,7 @@ public class CalculatorTest {
     }
 
     @Test
-    public void shouldReturnCorrectValueWhenAValueIsMultipliedAsSecondCommand() {
+    public void shouldReturnCorrectValueWhenFirstCommandIsAddAndSecondCommandIsMultiply() {
         Calculator calculator = new Calculator();
         calculator.processCommand("add 10");
 
@@ -61,7 +61,7 @@ public class CalculatorTest {
     }
 
     @Test
-    public void shouldReturnCorrectValueWhenAValueIsDividedAsSecondCommand() {
+    public void shouldReturnCorrectValueWhenFirstCommandIsAddAndSecondCommandIsDivide() {
         Calculator calculator = new Calculator();
         calculator.processCommand("add 10");
 
@@ -71,7 +71,7 @@ public class CalculatorTest {
     }
 
     @Test
-    public void shouldSetTheCalculatorStateToZeroWhenCancelCommandIsPassed() {
+    public void shouldSetTheCalculatorStateToZeroWhenCancelCommandIsGiven() {
         Calculator calculator = new Calculator();
         calculator.processCommand("add 10");
 
@@ -81,7 +81,7 @@ public class CalculatorTest {
     }
 
     @Test
-    public void shouldBeAbleToExitOutOfTheCalculatorApp() {
+    public void shouldExitOutOfTheCalculatorAppWhenExitCommandIsGiven() {
         Calculator calculator = new Calculator();
         exit.expectSystemExitWithStatus(0);
         calculator.processCommand("exit");
