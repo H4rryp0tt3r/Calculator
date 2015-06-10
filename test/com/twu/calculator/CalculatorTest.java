@@ -1,11 +1,16 @@
 package com.twu.calculator;
 
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.contrib.java.lang.system.ExpectedSystemExit;
 
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 
 public class CalculatorTest {
+
+    @Rule
+    public final ExpectedSystemExit exit = ExpectedSystemExit.none();
 
     @Test
     public void shouldReturnZeroWhenZeroIsAddedAsInitialCommand() {
@@ -73,5 +78,12 @@ public class CalculatorTest {
         double actualResult = calculator.processCommand("cancel");
 
         assertThat(actualResult, is(0.0));
+    }
+
+    @Test
+    public void shouldBeAbleToExitOutOfTheCalculatorApp() {
+        Calculator calculator = new Calculator();
+        exit.expectSystemExitWithStatus(0);
+        calculator.processCommand("exit");
     }
 }

@@ -12,6 +12,10 @@ public class Calculator {
         String[] splitCommand = command.split(" ");
         String operation = splitCommand[0];
         double operand = Double.parseDouble(splitCommand[1]);
+        return doOperation(operation, operand);
+    }
+
+    public double doOperation(String operation, double operand) {
         switch (operation) {
             case "add":
                 result += operand;
