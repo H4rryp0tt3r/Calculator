@@ -21,6 +21,9 @@ public class Calculator {
             case "abs":
                 result = Math.abs(result);
                 break;
+            case "neg":
+                result = -result;
+                break;
             case "cancel":
                 result = 0;
                 break;

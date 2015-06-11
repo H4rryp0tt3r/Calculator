@@ -96,4 +96,16 @@ public class CalculatorTest {
 
         assertThat(actualResult, is(10.0));
     }
+
+    @Test
+    public void shouldReturnNegativeValueOfResult() {
+        Calculator calculator = new Calculator();
+        calculator.doOperation("add", 10);
+
+        double actualResult = calculator.doOperation("neg", 0);
+
+        assertThat(actualResult, is(-10.0));
+    }
+
+
 }
