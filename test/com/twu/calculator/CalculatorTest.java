@@ -16,7 +16,7 @@ public class CalculatorTest {
     public void shouldReturnZeroWhenZeroIsAddedAsInitialCommand() {
         Calculator calculator = new Calculator();
 
-        double actualResult = calculator.processCommand("add 0");
+        double actualResult = calculator.doOperation("add", 0);
 
         assertThat(actualResult, is(0.0));
     }
@@ -25,7 +25,7 @@ public class CalculatorTest {
     public void shouldReturnCorrectValueWhenAValueIsAddedAsInitialCommand() {
         Calculator calculator = new Calculator();
 
-        double actualResult = calculator.processCommand("add 10");
+        double actualResult = calculator.doOperation("add", 10);
 
         assertThat(actualResult, is(10.0));
     }
@@ -33,9 +33,9 @@ public class CalculatorTest {
     @Test
     public void shouldReturnCorrectValueWhenTwoAddCommandAreGiven() {
         Calculator calculator = new Calculator();
-        calculator.processCommand("add 10");
+        calculator.doOperation("add", 10);
 
-        double actualResult = calculator.processCommand("add 20");
+        double actualResult = calculator.doOperation("add", 20);
 
         assertThat(actualResult, is(30.0));
     }
@@ -43,9 +43,9 @@ public class CalculatorTest {
     @Test
     public void shouldReturnCorrectValueWhenFirstCommandIsAddAndSecondCommandIsSubtract() {
         Calculator calculator = new Calculator();
-        calculator.processCommand("add 30");
+        calculator.doOperation("add", 30);
 
-        double actualResult = calculator.processCommand("subtract 20");
+        double actualResult = calculator.doOperation("subtract", 20);
 
         assertThat(actualResult, is(10.0));
     }
@@ -53,9 +53,9 @@ public class CalculatorTest {
     @Test
     public void shouldReturnCorrectValueWhenFirstCommandIsAddAndSecondCommandIsMultiply() {
         Calculator calculator = new Calculator();
-        calculator.processCommand("add 10");
+        calculator.doOperation("add", 10);
 
-        double actualResult = calculator.processCommand("multiply 20");
+        double actualResult = calculator.doOperation("multiply", 20);
 
         assertThat(actualResult, is(200.0));
     }
@@ -63,9 +63,9 @@ public class CalculatorTest {
     @Test
     public void shouldReturnCorrectValueWhenFirstCommandIsAddAndSecondCommandIsDivide() {
         Calculator calculator = new Calculator();
-        calculator.processCommand("add 10");
+        calculator.doOperation("add", 10);
 
-        double actualResult = calculator.processCommand("divide 2");
+        double actualResult = calculator.doOperation("divide", 2);
 
         assertThat(actualResult, is(5.0));
     }
@@ -73,9 +73,9 @@ public class CalculatorTest {
     @Test
     public void shouldSetTheCalculatorStateToZeroWhenCancelCommandIsGiven() {
         Calculator calculator = new Calculator();
-        calculator.processCommand("add 10");
+        calculator.doOperation("add", 10);
 
-        double actualResult = calculator.processCommand("cancel");
+        double actualResult = calculator.doOperation("cancel", 0);
 
         assertThat(actualResult, is(0.0));
     }
@@ -84,6 +84,16 @@ public class CalculatorTest {
     public void shouldExitOutOfTheCalculatorAppWhenExitCommandIsGiven() {
         Calculator calculator = new Calculator();
         exit.expectSystemExitWithStatus(0);
-        calculator.processCommand("exit");
+        calculator.doOperation("exit", 0);
+    }
+
+    @Test
+    public void shouldReturnAbsoluteValueOfResult() {
+        Calculator calculator = new Calculator();
+        calculator.doOperation("add", -10);
+
+        double actualResult = calculator.doOperation("abs", 0);
+
+        assertThat(actualResult, is(10.0));
     }
 }

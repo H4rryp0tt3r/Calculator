@@ -4,17 +4,6 @@ public class Calculator {
 
     private double result;
 
-    public double processCommand(String command) {
-        if (command.equals("cancel"))
-            return (result = 0);
-        if (command.equals("exit"))
-            System.exit(0);
-        String[] splitCommand = command.split(" ");
-        String operation = splitCommand[0];
-        double operand = Double.parseDouble(splitCommand[1]);
-        return doOperation(operation, operand);
-    }
-
     public double doOperation(String operation, double operand) {
         switch (operation) {
             case "add":
@@ -29,6 +18,14 @@ public class Calculator {
             case "divide":
                 result /= operand;
                 break;
+            case "abs":
+                result = Math.abs(result);
+                break;
+            case "cancel":
+                result = 0;
+                break;
+            case "exit":
+                System.exit(0);
         }
         return result;
     }
