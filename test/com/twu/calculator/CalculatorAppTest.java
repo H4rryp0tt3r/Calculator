@@ -23,10 +23,10 @@ public class CalculatorAppTest {
 
     @Test
     public void shouldStartTheCalculator() {
-        Calculator mockCalculator = new Calculator();
-        CalculatorApp calculatorApp = new CalculatorApp(mockCalculator);
+        Calculator calculator = new Calculator();
+        CalculatorApp calculatorApp = new CalculatorApp(calculator);
         calculatorApp.start(false);
-        
+
         String actualResult = outputContent.toString();
 
         assertThat(actualResult, is("> 10.0\n"));

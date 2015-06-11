@@ -2,46 +2,46 @@ package com.twu.calculator;
 
 public class Calculator {
 
-    private double result;
+    private double accumulator;
 
     public double doOperation(String operation, double operand) {
         switch (operation) {
             case "add":
-                result += operand;
+                accumulator += operand;
                 break;
             case "subtract":
-                result -= operand;
+                accumulator -= operand;
                 break;
             case "multiply":
-                result *= operand;
+                accumulator *= operand;
                 break;
             case "divide":
-                result /= operand;
+                accumulator /= operand;
                 break;
             case "abs":
-                result = Math.abs(result);
+                accumulator = Math.abs(accumulator);
                 break;
             case "neg":
-                result = -result;
+                accumulator = -accumulator;
                 break;
             case "sqrt":
-                result = Math.sqrt(result);
+                accumulator = Math.sqrt(accumulator);
                 break;
             case "sqr":
-                result = Math.pow(result, 2);
+                accumulator = Math.pow(accumulator, 2);
                 break;
             case "cube":
-                result = Math.pow(result, 3);
+                accumulator = Math.pow(accumulator, 3);
                 break;
             case "cubert":
-                result = Math.cbrt(result);
+                accumulator = Math.cbrt(accumulator);
                 break;
             case "cancel":
-                result = 0;
+                accumulator = 0;
                 break;
             case "exit":
                 System.exit(0);
         }
-        return result;
+        return accumulator;
     }
 }

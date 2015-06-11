@@ -4,7 +4,7 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.contrib.java.lang.system.ExpectedSystemExit;
 
-import static org.hamcrest.Matchers.is;
+import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
 public class CalculatorTest {
@@ -109,7 +109,7 @@ public class CalculatorTest {
     }
 
     @Test
-    public void shouldReturnSquareRootValueOfResult() {
+    public void shouldReturnSquareRootOfResult() {
         Calculator calculator = new Calculator();
         calculator.doOperation("add", 16);
 
