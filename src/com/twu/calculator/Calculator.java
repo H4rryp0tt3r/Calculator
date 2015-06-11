@@ -27,6 +27,9 @@ public class Calculator {
             case "sqrt":
                 result = Math.sqrt(result);
                 break;
+            case "sqr":
+                result = Math.pow(result,2);
+                break;
             case "cancel":
                 result = 0;
                 break;

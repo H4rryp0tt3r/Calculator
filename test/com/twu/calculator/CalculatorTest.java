@@ -117,4 +117,16 @@ public class CalculatorTest {
 
         assertThat(actualResult, is(4.0));
     }
+
+    @Test
+
+    public void shouldReturnSquareOfResult() {
+        Calculator calculator = new Calculator();
+        calculator.doOperation("add", 4);
+
+        double actualResult = calculator.doOperation("sqr", 0);
+
+        assertThat(actualResult, is(16.0));
+    }
+
 }
