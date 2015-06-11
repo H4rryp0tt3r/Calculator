@@ -33,6 +33,9 @@ public class Calculator {
             case "cube":
                 result = Math.pow(result, 3);
                 break;
+            case "cubert":
+                result = Math.cbrt(result);
+                break;
             case "cancel":
                 result = 0;
                 break;

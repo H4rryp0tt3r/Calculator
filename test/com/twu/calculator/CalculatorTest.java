@@ -139,4 +139,14 @@ public class CalculatorTest {
         assertThat(actualResult, is(64.0));
     }
 
+    @Test
+    public void shouldReturnCubeRootOfResult() {
+        Calculator calculator = new Calculator();
+        calculator.doOperation("add", 64);
+
+        double actualResult = calculator.doOperation("cubert", 0);
+
+        assertThat(actualResult, is(4.0));
+    }
+
 }
