@@ -28,7 +28,10 @@ public class Calculator {
                 result = Math.sqrt(result);
                 break;
             case "sqr":
-                result = Math.pow(result,2);
+                result = Math.pow(result, 2);
+                break;
+            case "cube":
+                result = Math.pow(result, 3);
                 break;
             case "cancel":
                 result = 0;
