@@ -11,6 +11,7 @@ public class CalculatorTest {
 
     @Rule
     public final ExpectedSystemExit exit = ExpectedSystemExit.none();
+    private double actualResult;
 
     @Test
     public void shouldReturnZeroWhenZeroIsAddedAsInitialCommand() {
@@ -55,7 +56,7 @@ public class CalculatorTest {
         Calculator calculator = new Calculator();
         calculator.doOperation("add", 10);
 
-        double actualResult = calculator.doOperation("multiply", 20);
+        actualResult = calculator.doOperation("multiply", 20);
 
         assertThat(actualResult, is(200.0));
     }
@@ -107,5 +108,13 @@ public class CalculatorTest {
         assertThat(actualResult, is(-10.0));
     }
 
+    @Test
+    public void shouldReturnSquareRootValueOfResult() {
+        Calculator calculator = new Calculator();
+        calculator.doOperation("add", 16);
 
+        double actualResult = calculator.doOperation("sqrt", 0);
+
+        assertThat(actualResult, is(4.0));
+    }
 }

@@ -24,6 +24,9 @@ public class Calculator {
             case "neg":
                 result = -result;
                 break;
+            case "sqrt":
+                result = Math.sqrt(result);
+                break;
             case "cancel":
                 result = 0;
                 break;
